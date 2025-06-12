@@ -26,11 +26,16 @@
             color: #00B4D8;
             border-bottom: 2px solid #00B4D8;
         }
-        .content-section {
+        .thesis-tab.active {
+            border-color: #0077B6;
+            background-color: #E0F7FA;
+            color: #0077B6;
+        }
+        .content-section, .thesis-content {
             display: none;
             animation: fadeIn 0.5s ease-in-out;
         }
-        .content-section.active {
+        .content-section.active, .thesis-content.active {
             display: block;
         }
         @keyframes fadeIn {
@@ -49,23 +54,21 @@
             </div>
             <div class="hidden md:flex space-x-8 items-center">
                 <a href="#overview" data-target="overview" class="nav-link text-gray-600 hover:text-[#0077B6] font-semibold transition-colors duration-300 pb-1">Visão Geral</a>
+                <a href="#theses" data-target="theses" class="nav-link text-gray-600 hover:text-[#0077B6] font-semibold transition-colors duration-300 pb-1">Teses de Investimento</a>
                 <a href="#charts" data-target="charts" class="nav-link text-gray-600 hover:text-[#0077B6] font-semibold transition-colors duration-300 pb-1">Análise Visual</a>
                 <a href="#assets" data-target="assets" class="nav-link text-gray-600 hover:text-[#0077B6] font-semibold transition-colors duration-300 pb-1">Detalhes dos Ativos</a>
                 <a href="#governance" data-target="governance" class="nav-link text-gray-600 hover:text-[#0077B6] font-semibold transition-colors duration-300 pb-1">Governança</a>
             </div>
-            <a href="#contact" data-target="contact" class="hidden md:inline-block bg-[#0077B6] text-white font-bold py-2 px-6 rounded-lg hover:bg-[#00B4D8] transition-colors duration-300">
-                Contato
-            </a>
             <button id="mobile-menu-button" class="md:hidden text-gray-800">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
             </button>
         </nav>
         <div id="mobile-menu" class="hidden md:hidden px-6 pt-2 pb-4 space-y-2">
             <a href="#overview" data-target="overview" class="block nav-link text-gray-600 hover:text-[#0077B6] font-semibold">Visão Geral</a>
+            <a href="#theses" data-target="theses" class="block nav-link text-gray-600 hover:text-[#0077B6] font-semibold">Teses de Investimento</a>
             <a href="#charts" data-target="charts" class="block nav-link text-gray-600 hover:text-[#0077B6] font-semibold">Análise Visual</a>
             <a href="#assets" data-target="assets" class="block nav-link text-gray-600 hover:text-[#0077B6] font-semibold">Detalhes dos Ativos</a>
             <a href="#governance" data-target="governance" class="block nav-link text-gray-600 hover:text-[#0077B6] font-semibold">Governança</a>
-            <a href="#contact" data-target="contact" class="block bg-[#0077B6] text-white font-bold py-2 px-4 rounded-lg hover:bg-[#00B4D8] transition-colors duration-300 text-center mt-2">Contato</a>
         </div>
     </header>
 
@@ -88,7 +91,7 @@
 
             <h3 class="text-2xl md:text-3xl font-bold text-center mb-8 text-gray-900">A Tese de Investimento: 4 Pilares de Valor</h3>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div class="bg-white rounded-2xl shadow-md p-6 text-center hover:shadow-xl transition-shadow duration-300 border border-gray-100">
+                 <div class="bg-white rounded-2xl shadow-md p-6 text-center hover:shadow-xl transition-shadow duration-300 border border-gray-100">
                     <div class="text-4xl mb-3 text-[#0077B6]">🗓️</div>
                     <h4 class="font-bold text-lg mb-2 text-gray-900">Previsibilidade de Fluxo</h4>
                     <p class="text-gray-600 text-sm">A maioria dos ativos já superou a fase de mérito, com risco jurídico reduzido e discussões focadas em cálculos e pagamentos.</p>
@@ -107,6 +110,77 @@
                     <div class="text-4xl mb-3 text-[#0077B6]">📈</div>
                     <h4 class="font-bold text-lg mb-2 text-gray-900">Retorno Atrativo</h4>
                     <p class="text-gray-600 text-sm">Oportunidade de capturar um deságio significativo em ativos de baixo risco e estágio de maturação avançado.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção de Teses de Investimento -->
+        <section id="theses" class="content-section">
+            <h3 class="text-2xl md:text-3xl font-bold text-center mb-8 text-gray-900">Fundamentos das Teses de Investimento</h3>
+            <div class="bg-white rounded-2xl shadow-lg p-6 md:p-8 border border-gray-200">
+                <div class="border-b border-gray-200 mb-6">
+                    <nav class="-mb-px flex space-x-6" aria-label="Tabs">
+                        <button data-thesis-target="iaa" class="thesis-tab whitespace-nowrap py-4 px-1 border-b-2 font-medium text-lg">Tese Sucroalcooleira (IAA)</button>
+                        <button data-thesis-target="tda" class="thesis-tab whitespace-nowrap py-4 px-1 border-b-2 font-medium text-lg">Tese Títulos da Dívida Agrária (TDA)</button>
+                    </nav>
+                </div>
+
+                <!-- Conteúdo da Tese IAA -->
+                <div id="iaa" class="thesis-content space-y-6">
+                    <div class="prose max-w-none prose-gray">
+                        <h4 class="font-bold text-xl text-gray-800">Introdução e Histórico</h4>
+                        <p>O setor sucroalcooleiro foi submetido a uma forte intervenção estatal, segundo parâmetros definidos na Lei nº 4.870/65. A lei determinava que o governo fixasse administrativamente os preços com base no custo de produção, que deveria ser apurado tecnicamente pelo Instituto do Açúcar e do Álcool (IAA) em parceria com uma instituição técnica, a Fundação Getúlio Vargas (FGV).</p>
+                        <p>Nos anos 80, durante um período de hiperinflação, o Governo Federal abandonou o critério técnico e passou a fixar os preços com base em razões puramente políticas, alegando que os custos apurados pela FGV eram meramente indicativos. Essa prática resultou em perdas generalizadas para toda a indústria, com preços fixados abaixo dos custos de produção, levando a uma grave crise no setor, incluindo escassez de produtos.</p>
+                        <p>Apesar de um acordo firmado entre o Governo e o setor para retomar o critério técnico, a União descumpriu o combinado, o que levou as usinas a buscarem na Justiça a reparação pelos danos sofridos.</p>
+                        
+                        <h4 class="font-bold text-xl text-gray-800 mt-6">Evolução da Jurisprudência</h4>
+                        <p>A jurisprudência dos tribunais superiores, inicialmente, consolidou-se de forma favorável às usinas. A tese vencedora definia que a indenização corresponderia à diferença entre o custo de produção apurado pela FGV e o preço fixado pelo governo. Contudo, decisões mais recentes, como o "Caso Matary" (REsp nº 1.347.136/DF), trouxeram novas diretrizes, como a apuração do dano a partir do custo individual de cada empresa e uma limitação temporal do período indenizável.</p>
+                        <p>O Supremo Tribunal Federal (ARE 884.325) também reexaminou o tema, estabelecendo a necessidade de comprovação de prejuízo econômico via perícia em cada caso concreto. No entanto, para garantir a segurança jurídica, os próprios tribunais têm ressalvado que esse novo entendimento <strong>não se aplica aos casos que já transitaram em julgado</strong>, situação da maioria dos ativos deste portfólio. Nestes casos, prevalece o que foi decidido no título executivo original.</p>
+                        
+                        <h4 class="font-bold text-xl text-gray-800 mt-6">Liquidez e Limitação Temporal</h4>
+                        <p>A discussão sobre a liquidez dos títulos e a limitação temporal das indenizações são os pontos centrais nos processos em fase de execução. A tese da União busca limitar a indenização a março de 1991. Contudo, argumenta-se que a responsabilidade do Estado persiste enquanto houve controle de preços (até 1999), com base no dever constitucional de indenizar (art. 37, §6º, da CF/88). Novamente, para os casos com coisa julgada, a tendência é que os tribunais mantenham o período definido na sentença original.</p>
+                    </div>
+                </div>
+
+                <!-- Conteúdo da Tese TDA -->
+                <div id="tda" class="thesis-content space-y-6">
+                     <div class="prose max-w-none prose-gray">
+                        <h4 class="font-bold text-xl text-gray-800">Resumo da Tese</h4>
+                        <p>A tese dos Títulos da Dívida Agrária (TDAs) se baseia no direito dos seus portadores à correção monetária plena sobre os valores dos títulos, especialmente em relação aos expurgos inflacionários não aplicados durante os planos econômicos Verão e Collor. A jurisprudência consolidada do STJ e dos Tribunais Regionais Federais reconhece esse direito, desde que os títulos tenham sido emitidos antes dos respectivos planos.</p>
+                        <p>Além da correção, é pacífico o entendimento sobre a incidência de juros compensatórios (para garantir a justa indenização) e juros moratórios (pelo atraso no pagamento). As taxas e os períodos de incidência variam conforme precedentes, mas o direito ao recálculo é amplamente reconhecido, representando uma oportunidade de recuperação de valor significativa.</p>
+                     </div>
+                     <div class="overflow-x-auto mt-6">
+                        <table class="min-w-full bg-white border border-gray-200 text-sm">
+                            <thead class="bg-blue-50">
+                                <tr>
+                                    <th class="py-2 px-3 border-b font-semibold text-gray-600 text-left">Precedente</th>
+                                    <th class="py-2 px-3 border-b font-semibold text-gray-600 text-left">Índices Reconhecidos</th>
+                                    <th class="py-2 px-3 border-b font-semibold text-gray-600 text-left">Taxas de Juros</th>
+                                    <th class="py-2 px-3 border-b font-semibold text-gray-600 text-left">Notas Relevantes</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-gray-700">
+                                <tr>
+                                    <td class="py-2 px-3 border-b">STJ MS 8.242/DF</td>
+                                    <td class="py-2 px-3 border-b">Verão (42,72%), Collor I (84,32%), Collor II (13,89%)</td>
+                                    <td class="py-2 px-3 border-b">Compensatórios (6% a.a.) e Moratórios (6% a.a.)</td>
+                                    <td class="py-2 px-3 border-b">Precedente central para o tema.</td>
+                                </tr>
+                                <tr class="bg-gray-50">
+                                    <td class="py-2 px-3 border-b">TRF1 AC 0026363-68</td>
+                                    <td class="py-2 px-3 border-b">Collor II (13,89%)</td>
+                                    <td class="py-2 px-3 border-b">Compensatórios de 12% a.a. antes da MP 1.577/97.</td>
+                                    <td class="py-2 px-3 border-b">Admita taxa maior em período específico.</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2 px-3 border-b">TRF1 AC 0031220-21</td>
+                                    <td class="py-2 px-3 border-b">Verão (42,72%), Collor II (13,89%)</td>
+                                    <td class="py-2 px-3 border-b">Moratórios de 1% a.m. após o Código Civil de 2002.</td>
+                                    <td class="py-2 px-3 border-b">Destaca a mudança da taxa de juros com o novo CC.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                     </div>
                 </div>
             </div>
         </section>
@@ -171,14 +245,6 @@
             </div>
         </section>
         
-        <!-- Seção de Contato -->
-        <section id="contact" class="content-section">
-             <div class="text-center bg-[#03045E] text-white rounded-2xl p-10 max-w-4xl mx-auto">
-                <h3 class="text-2xl font-bold mb-4">Próximos Passos</h3>
-                <p class="mb-6 max-w-2xl mx-auto">As condições de cessão e aquisição são flexíveis. Estamos à disposição para agendar uma apresentação detalhada e fornecer acesso ao data room para sua análise.</p>
-            </div>
-        </section>
-
     </main>
 
     <script>
@@ -188,33 +254,47 @@
             const contentSections = document.querySelectorAll('.content-section');
             const mobileMenuButton = document.getElementById('mobile-menu-button');
             const mobileMenu = document.getElementById('mobile-menu');
+            const thesisTabs = document.querySelectorAll('.thesis-tab');
+            const thesisContents = document.querySelectorAll('.thesis-content');
 
-            function switchTab(targetId) {
-                contentSections.forEach(section => {
-                    section.classList.remove('active');
-                });
+            function switchPage(targetId) {
+                contentSections.forEach(section => section.classList.remove('active'));
                 document.querySelectorAll('.nav-link').forEach(link => {
                     link.classList.remove('active');
-                    if (link.dataset.target === targetId) {
-                        link.classList.add('active');
-                    }
+                    if(link.dataset.target === targetId) link.classList.add('active');
                 });
                 document.getElementById(targetId)?.classList.add('active');
                 mobileMenu.classList.add('hidden');
+            }
+            
+            function switchThesisTab(targetId) {
+                thesisContents.forEach(content => content.classList.remove('active'));
+                thesisTabs.forEach(tab => {
+                    tab.classList.remove('active');
+                    if (tab.dataset.thesisTarget === targetId) tab.classList.add('active');
+                });
+                document.getElementById(targetId)?.classList.add('active');
             }
 
             document.querySelectorAll('.nav-link').forEach(link => {
                 link.addEventListener('click', (e) => {
                     e.preventDefault();
-                    switchTab(link.dataset.target);
+                    switchPage(link.dataset.target);
                 });
             });
             
-            mobileMenuButton.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
+            thesisTabs.forEach(tab => {
+                tab.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    switchThesisTab(tab.dataset.thesisTarget);
+                });
             });
+
+            mobileMenuButton.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
             
-            switchTab('overview');
+            switchPage('overview');
+            switchThesisTab('iaa');
+
 
             const wrapLabel = (label, maxLength = 16) => {
                 if (label.length <= maxLength) return label;
@@ -253,18 +333,18 @@
             };
             
             const assetsData = [
-                { name: 'Santo Antônio', structure: 'BLC I/II', faceValue: '5.509,5', percentage: '60%/40%', finalValue: '5.509,5¹', classification: 'Core Plus', origin: 'Indenização, setor sucroalcooleiro.', status: 'Decisão final de mérito, em execução. Discute-se período e ajustes de cálculo.', comment: 'Ativo sólido, baixo risco residual, excelente potencial de retorno a médio prazo.' },
-                { name: 'Usina da Barra', structure: 'BLC II', faceValue: '2.609,9', percentage: '88%', finalValue: '2.296,8', classification: 'Core (Pré-liquidez)', origin: 'Indenização, política pública.', status: 'Mérito favorável, em execução final. União contesta detalhes técnicos.', comment: 'Fase adiantada, expectativa de solução célere e retorno consistente.' },
-                { name: 'Univalem', structure: 'BLC II', faceValue: '1.146,6', percentage: '88,0%', finalValue: '1.009,0', classification: 'Core (Pré-liquidez)', origin: 'Indenização, políticas públicas.', status: 'Mérito final, em execução. União apresenta objeções técnicas.', comment: 'Risco jurídico reduzido, alto potencial de recebimento e previsibilidade.' },
-                { name: 'Gainsa (BGL)', structure: 'BGL', faceValue: '1.017,7', percentage: '44,50%', finalValue: '452,90', classification: 'Core (Pré-liquidez)', origin: 'Indenização, controle de preços.', status: 'Embargos à execução em curso/Contas pendentes de homologação.', comment: 'Ativo sólido com baixo risco residual e potencial de ajuste no valor.' },
-                { name: 'Gainsa (BLC I)', structure: 'BLC I', faceValue: '1.017,7', percentage: '40,50%', finalValue: '412,19', classification: 'Core (Pré-liquidez)', origin: 'Indenização, controle de preços.', status: 'Embargos à execução em curso/Contas pendentes de homologação.', comment: 'Ativo sólido com baixo risco residual e potencial de ajuste no valor.' },
-                { name: 'Mausa', structure: 'BLC I', faceValue: '971,8', percentage: '90,0%', finalValue: '874,6', classification: 'Core', origin: 'Indenização, controle estatal de preços.', status: 'Mérito transitado em julgado. Cálculos revisados pela contadoria judicial.', comment: 'Ativo maduro, baixa probabilidade de reversão, retorno seguro e rápido.' },
-                { name: 'Costa Pinto', structure: 'BLC II', faceValue: '990,0', percentage: '88,0%', finalValue: '871,2', classification: 'Core', origin: 'Indenização, setor sucroalcooleiro.', status: 'Mérito transitado em julgado. Recursos da União ao STJ/STF pendentes.', comment: 'Risco reduzido, potencial significativo. Maturidade processual confere solidez.' },
-                { name: 'Guarani', structure: 'BLC II', faceValue: '904,0', percentage: '90,0%', finalValue: '813,6', classification: 'Oportunístico', origin: 'Tese de indenização (leading case Matary/STF).', status: 'Em fase de mérito. Estratégia jurídica robusta para reversão de decisões.', comment: 'Perfil opcional, risco relevante mas com upside elevado em caso de reversão.' },
-                { name: 'São Domingos', structure: 'BLC I', faceValue: '558,3', percentage: '88,0%', finalValue: '491,3', classification: 'Core', origin: 'Indenização, controle de preços do setor.', status: 'Mérito definitivo. Pendente de julgamento em segunda instância sem risco material.', comment: 'Perfil conservador, lastro reconhecido, atrativo para perfis institucionais.' },
-                { name: 'Corona', structure: 'BLC II', faceValue: '376,5', percentage: '88,0%', finalValue: '331,3', classification: 'Core', origin: 'Indenização, política pública setorial.', status: 'Mérito transitado em julgado. Recursos da União no STF sem indicativo de admissão.', comment: 'Fase final de maturação, risco baixo, ideal para alocação de curto prazo.' },
-                { name: 'Bom Jesus', structure: 'BLC II', faceValue: '348,8', percentage: '88,0%', finalValue: '307,0', classification: 'Core', origin: 'Indenização, política estatal.', status: 'Mérito final, execução baseada em laudo ratificado. Recurso pendente.', comment: 'Ativo maduro, propício para investidores buscando previsibilidade e liquidez.' },
-                { name: 'Pedro Ometto', structure: 'BLC II', faceValue: '95,1', percentage: '88,0%', finalValue: '83,7', classification: 'Oportunístico', origin: 'Indenização, controle estatal.', status: 'Transitado em julgado, valores homologados. Recurso da União improcedente.', comment: 'Ativo praticamente líquido, risco mínimo e realização elevada. Ideal para máxima previsibilidade.' }
+                { name: 'Santo Antônio', thesis: 'Sucroalcooleiro', structure: 'BLC I/II', faceValue: '5.509,5', percentage: '60%/40%', finalValue: '5.509,5¹', classification: 'Core Plus', status: 'Decisão final de mérito, em execução. Discute-se período e ajustes de cálculo.', comment: 'Ativo sólido, baixo risco residual, excelente potencial de retorno a médio prazo.' },
+                { name: 'Usina da Barra', thesis: 'Sucroalcooleiro', structure: 'BLC II', faceValue: '2.609,9', percentage: '88%', finalValue: '2.296,8', classification: 'Core (Pré-liquidez)', status: 'Mérito favorável, em execução final. União contesta detalhes técnicos.', comment: 'Fase adiantada, expectativa de solução célere e retorno consistente.' },
+                { name: 'Univalem', thesis: 'Sucroalcooleiro', structure: 'BLC II', faceValue: '1.146,6', percentage: '88,0%', finalValue: '1.009,0', classification: 'Core (Pré-liquidez)', status: 'Mérito final, em execução. União apresenta objeções técnicas.', comment: 'Risco jurídico reduzido, alto potencial de recebimento e previsibilidade.' },
+                { name: 'Gainsa (BGL)', thesis: 'TDA', structure: 'BGL', faceValue: '1.017,7', percentage: '44,50%', finalValue: '452,90', classification: 'Core (Pré-liquidez)', status: 'Embargos à execução em curso/Contas pendentes de homologação.', comment: 'Ativo sólido com baixo risco residual e potencial de ajuste no valor.' },
+                { name: 'Gainsa (BLC I)', thesis: 'TDA', structure: 'BLC I', faceValue: '1.017,7', percentage: '40,50%', finalValue: '412,19', classification: 'Core (Pré-liquidez)', status: 'Embargos à execução em curso/Contas pendentes de homologação.', comment: 'Ativo sólido com baixo risco residual e potencial de ajuste no valor.' },
+                { name: 'Mausa', thesis: 'Sucroalcooleiro', structure: 'BLC I', faceValue: '971,8', percentage: '90,0%', finalValue: '874,6', classification: 'Core', status: 'Mérito transitado em julgado. Cálculos revisados pela contadoria judicial.', comment: 'Ativo maduro, baixa probabilidade de reversão, retorno seguro e rápido.' },
+                { name: 'Costa Pinto', thesis: 'Sucroalcooleiro', structure: 'BLC II', faceValue: '990,0', percentage: '88,0%', finalValue: '871,2', classification: 'Core', status: 'Mérito transitado em julgado. Recursos da União ao STJ/STF pendentes.', comment: 'Risco reduzido, potencial significativo. Maturidade processual confere solidez.' },
+                { name: 'Guarani', thesis: 'Sucroalcooleiro', structure: 'BLC II', faceValue: '904,0', percentage: '90,0%', finalValue: '813,6', classification: 'Oportunístico', status: 'Em fase de mérito. Estratégia jurídica robusta para reversão de decisões.', comment: 'Perfil opcional, risco relevante mas com upside elevado em caso de reversão.' },
+                { name: 'São Domingos', thesis: 'Sucroalcooleiro', structure: 'BLC I', faceValue: '558,3', percentage: '88,0%', finalValue: '491,3', classification: 'Core', status: 'Mérito definitivo. Pendente de julgamento em segunda instância sem risco material.', comment: 'Perfil conservador, lastro reconhecido, atrativo para perfis institucionais.' },
+                { name: 'Corona', thesis: 'Sucroalcooleiro', structure: 'BLC II', faceValue: '376,5', percentage: '88,0%', finalValue: '331,3', classification: 'Core', status: 'Mérito transitado em julgado. Recursos da União no STF sem indicativo de admissão.', comment: 'Fase final de maturação, risco baixo, ideal para alocação de curto prazo.' },
+                { name: 'Bom Jesus', thesis: 'Sucroalcooleiro', structure: 'BLC II', faceValue: '348,8', percentage: '88,0%', finalValue: '307,0', classification: 'Core', status: 'Mérito final, execução baseada em laudo ratificado. Recurso pendente.', comment: 'Ativo maduro, propício para investidores buscando previsibilidade e liquidez.' },
+                { name: 'Pedro Ometto', thesis: 'Sucroalcooleiro', structure: 'BLC II', faceValue: '95,1', percentage: '88,0%', finalValue: '83,7', classification: 'Oportunístico', status: 'Transitado em julgado, valores homologados. Recurso da União improcedente.', comment: 'Ativo praticamente líquido, risco mínimo e realização elevada. Ideal para máxima previsibilidade.' }
             ];
 
             const barChartDataAtivos = {
@@ -348,7 +428,7 @@
                         <div><p class="text-xs font-semibold text-gray-500 uppercase tracking-wider">V. Final (R$ mi)</p><p class="font-bold text-base text-[#03045E]">${asset.finalValue}</p></div>
                     </div>
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-sm mt-4">
-                        <div><p class="font-semibold text-[#0077B6] mb-1">Origem</p><p class="text-gray-600">${asset.origin}</p></div>
+                        <div><p class="font-semibold text-[#0077B6] mb-1">Origem da Tese</p><p class="text-gray-600">${asset.thesis}</p></div>
                         <div><p class="font-semibold text-[#0077B6] mb-1">Status Processual</p><p class="text-gray-600">${asset.status}</p></div>
                         <div><p class="font-semibold text-[#0077B6] mb-1">Comentário Risco/Retorno</p><p class="text-gray-600">${asset.comment}</p></div>
                     </div>
