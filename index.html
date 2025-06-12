@@ -135,6 +135,7 @@
         <!-- Seção Detalhada dos Ativos -->
         <section id="assets" class="content-section">
             <h3 class="text-2xl md:text-3xl font-bold text-center mb-12 text-gray-900">Análise Detalhada dos Ativos</h3>
+            <div id="classification-legend" class="flex flex-wrap justify-center gap-4 mb-8 text-xs"></div>
             <div id="assets-container" class="space-y-6">
             </div>
         </section>
@@ -252,18 +253,18 @@
             };
             
             const assetsData = [
-                { name: 'Santo Antônio', structure: 'BLC I/II', faceValue: '5.509,5', percentage: '60%/40%', finalValue: '5.509,5¹', origin: 'Indenização, setor sucroalcooleiro.', status: 'Decisão final de mérito, em execução. Discute-se período e ajustes de cálculo.', comment: 'Ativo sólido, baixo risco residual, excelente potencial de retorno a médio prazo.' },
-                { name: 'Usina da Barra', structure: 'BLC II', faceValue: '2.609,9', percentage: '88%', finalValue: '2.296,8', origin: 'Indenização, política pública.', status: 'Mérito favorável, em execução final. União contesta detalhes técnicos.', comment: 'Fase adiantada, expectativa de solução célere e retorno consistente.' },
-                { name: 'Univalem', structure: 'BLC II', faceValue: '1.146,6', percentage: '88,0%', finalValue: '1.009,0', origin: 'Indenização, políticas públicas.', status: 'Mérito final, em execução. União apresenta objeções técnicas.', comment: 'Risco jurídico reduzido, alto potencial de recebimento e previsibilidade.' },
-                { name: 'Gainsa (BGL)', structure: 'BGL', faceValue: '1.017,7', percentage: '44,50%', finalValue: '452,90', origin: 'Indenização, controle de preços.', status: 'Embargos à execução em curso/Contas pendentes de homologação.', comment: 'Ativo sólido com baixo risco residual e potencial de ajuste no valor.' },
-                { name: 'Gainsa (BLC I)', structure: 'BLC I', faceValue: '1.017,7', percentage: '40,50%', finalValue: '412,19', origin: 'Indenização, controle de preços.', status: 'Embargos à execução em curso/Contas pendentes de homologação.', comment: 'Ativo sólido com baixo risco residual e potencial de ajuste no valor.' },
-                { name: 'Mausa', structure: 'BLC I', faceValue: '971,8', percentage: '90,0%', finalValue: '874,6', origin: 'Indenização, controle estatal de preços.', status: 'Mérito transitado em julgado. Cálculos revisados pela contadoria judicial.', comment: 'Ativo maduro, baixa probabilidade de reversão, retorno seguro e rápido.' },
-                { name: 'Costa Pinto', structure: 'BLC II', faceValue: '990,0', percentage: '88,0%', finalValue: '871,2', origin: 'Indenização, setor sucroalcooleiro.', status: 'Mérito transitado em julgado. Recursos da União ao STJ/STF pendentes.', comment: 'Risco reduzido, potencial significativo. Maturidade processual confere solidez.' },
-                { name: 'Guarani', structure: 'BLC II', faceValue: '904,0', percentage: '90,0%', finalValue: '813,6', origin: 'Tese de indenização (leading case Matary/STF).', status: 'Em fase de mérito. Estratégia jurídica robusta para reversão de decisões.', comment: 'Perfil opcional, risco relevante mas com upside elevado em caso de reversão.' },
-                { name: 'São Domingos', structure: 'BLC I', faceValue: '558,3', percentage: '88,0%', finalValue: '491,3', origin: 'Indenização, controle de preços do setor.', status: 'Mérito definitivo. Pendente de julgamento em segunda instância sem risco material.', comment: 'Perfil conservador, lastro reconhecido, atrativo para perfis institucionais.' },
-                { name: 'Corona', structure: 'BLC II', faceValue: '376,5', percentage: '88,0%', finalValue: '331,3', origin: 'Indenização, política pública setorial.', status: 'Mérito transitado em julgado. Recursos da União no STF sem indicativo de admissão.', comment: 'Fase final de maturação, risco baixo, ideal para alocação de curto prazo.' },
-                { name: 'Bom Jesus', structure: 'BLC II', faceValue: '348,8', percentage: '88,0%', finalValue: '307,0', origin: 'Indenização, política estatal.', status: 'Mérito final, execução baseada em laudo ratificado. Recurso pendente.', comment: 'Ativo maduro, propício para investidores buscando previsibilidade e liquidez.' },
-                { name: 'Pedro Ometto', structure: 'BLC II', faceValue: '95,1', percentage: '88,0%', finalValue: '83,7', origin: 'Indenização, controle estatal.', status: 'Transitado em julgado, valores homologados. Recurso da União improcedente.', comment: 'Ativo praticamente líquido, risco mínimo e realização elevada. Ideal para máxima previsibilidade.' }
+                { name: 'Santo Antônio', structure: 'BLC I/II', faceValue: '5.509,5', percentage: '60%/40%', finalValue: '5.509,5¹', classification: 'Core Plus', origin: 'Indenização, setor sucroalcooleiro.', status: 'Decisão final de mérito, em execução. Discute-se período e ajustes de cálculo.', comment: 'Ativo sólido, baixo risco residual, excelente potencial de retorno a médio prazo.' },
+                { name: 'Usina da Barra', structure: 'BLC II', faceValue: '2.609,9', percentage: '88%', finalValue: '2.296,8', classification: 'Core (Pré-liquidez)', origin: 'Indenização, política pública.', status: 'Mérito favorável, em execução final. União contesta detalhes técnicos.', comment: 'Fase adiantada, expectativa de solução célere e retorno consistente.' },
+                { name: 'Univalem', structure: 'BLC II', faceValue: '1.146,6', percentage: '88,0%', finalValue: '1.009,0', classification: 'Core (Pré-liquidez)', origin: 'Indenização, políticas públicas.', status: 'Mérito final, em execução. União apresenta objeções técnicas.', comment: 'Risco jurídico reduzido, alto potencial de recebimento e previsibilidade.' },
+                { name: 'Gainsa (BGL)', structure: 'BGL', faceValue: '1.017,7', percentage: '44,50%', finalValue: '452,90', classification: 'Core (Pré-liquidez)', origin: 'Indenização, controle de preços.', status: 'Embargos à execução em curso/Contas pendentes de homologação.', comment: 'Ativo sólido com baixo risco residual e potencial de ajuste no valor.' },
+                { name: 'Gainsa (BLC I)', structure: 'BLC I', faceValue: '1.017,7', percentage: '40,50%', finalValue: '412,19', classification: 'Core (Pré-liquidez)', origin: 'Indenização, controle de preços.', status: 'Embargos à execução em curso/Contas pendentes de homologação.', comment: 'Ativo sólido com baixo risco residual e potencial de ajuste no valor.' },
+                { name: 'Mausa', structure: 'BLC I', faceValue: '971,8', percentage: '90,0%', finalValue: '874,6', classification: 'Core', origin: 'Indenização, controle estatal de preços.', status: 'Mérito transitado em julgado. Cálculos revisados pela contadoria judicial.', comment: 'Ativo maduro, baixa probabilidade de reversão, retorno seguro e rápido.' },
+                { name: 'Costa Pinto', structure: 'BLC II', faceValue: '990,0', percentage: '88,0%', finalValue: '871,2', classification: 'Core', origin: 'Indenização, setor sucroalcooleiro.', status: 'Mérito transitado em julgado. Recursos da União ao STJ/STF pendentes.', comment: 'Risco reduzido, potencial significativo. Maturidade processual confere solidez.' },
+                { name: 'Guarani', structure: 'BLC II', faceValue: '904,0', percentage: '90,0%', finalValue: '813,6', classification: 'Oportunístico', origin: 'Tese de indenização (leading case Matary/STF).', status: 'Em fase de mérito. Estratégia jurídica robusta para reversão de decisões.', comment: 'Perfil opcional, risco relevante mas com upside elevado em caso de reversão.' },
+                { name: 'São Domingos', structure: 'BLC I', faceValue: '558,3', percentage: '88,0%', finalValue: '491,3', classification: 'Core', origin: 'Indenização, controle de preços do setor.', status: 'Mérito definitivo. Pendente de julgamento em segunda instância sem risco material.', comment: 'Perfil conservador, lastro reconhecido, atrativo para perfis institucionais.' },
+                { name: 'Corona', structure: 'BLC II', faceValue: '376,5', percentage: '88,0%', finalValue: '331,3', classification: 'Core', origin: 'Indenização, política pública setorial.', status: 'Mérito transitado em julgado. Recursos da União no STF sem indicativo de admissão.', comment: 'Fase final de maturação, risco baixo, ideal para alocação de curto prazo.' },
+                { name: 'Bom Jesus', structure: 'BLC II', faceValue: '348,8', percentage: '88,0%', finalValue: '307,0', classification: 'Core', origin: 'Indenização, política estatal.', status: 'Mérito final, execução baseada em laudo ratificado. Recurso pendente.', comment: 'Ativo maduro, propício para investidores buscando previsibilidade e liquidez.' },
+                { name: 'Pedro Ometto', structure: 'BLC II', faceValue: '95,1', percentage: '88,0%', finalValue: '83,7', classification: 'Oportunístico', origin: 'Indenização, controle estatal.', status: 'Transitado em julgado, valores homologados. Recurso da União improcedente.', comment: 'Ativo praticamente líquido, risco mínimo e realização elevada. Ideal para máxima previsibilidade.' }
             ];
 
             const barChartDataAtivos = {
@@ -295,7 +296,23 @@
             new Chart(ctxDonut, { type: 'doughnut', data: donutChartDataComposicao, options: { ...multiLineTooltip, responsive: true, maintainAspectRatio: false, plugins: { ...multiLineTooltip.plugins, legend: { position: 'bottom', labels: { padding: 15, usePointStyle: true, pointStyle: 'rectRounded' } } } } });
             
             const assetsContainer = document.getElementById('assets-container');
+            const legendContainer = document.getElementById('classification-legend');
             
+            const classificationStyles = {
+                'Core (Pré-liquidez)': { bg: 'bg-green-100', text: 'text-green-800', description: 'Risco mínimo, em fase final de recursos. Alta previsibilidade e curto prazo para liquidez.' },
+                'Core': { bg: 'bg-sky-100', text: 'text-sky-800', description: 'Decisão transitada em julgado. Baixo risco de reversão.' },
+                'Core Plus': { bg: 'bg-amber-100', text: 'text-amber-800', description: 'Execução em andamento com discussões técnicas/de cálculo. Mérito garantido.' },
+                'Oportunístico': { bg: 'bg-red-100', text: 'text-red-800', description: 'Risco de mérito, mas com potencial de upside elevado.' }
+            };
+
+            Object.keys(classificationStyles).forEach(key => {
+                const style = classificationStyles[key];
+                const legendItem = document.createElement('div');
+                legendItem.className = 'flex items-center';
+                legendItem.innerHTML = `<span class="h-3 w-3 rounded-full ${style.bg} mr-2"></span> <span class="font-semibold ${style.text}">${key}:</span> <span class="text-gray-600 ml-1">${style.description}</span>`;
+                legendContainer.appendChild(legendItem);
+            });
+
             const blc1Assets = [];
             const blc2Assets = [];
             
@@ -317,8 +334,13 @@
             sortedAssets.forEach(asset => {
                 const card = document.createElement('div');
                 card.className = 'bg-white rounded-2xl shadow-lg p-6 border border-gray-200';
+                const style = classificationStyles[asset.classification] || { bg: 'bg-gray-100', text: 'text-gray-800' };
+                
                 card.innerHTML = `
-                    <h4 class="font-bold text-xl text-gray-900 mb-3">${asset.name}</h4>
+                    <div class="flex items-center justify-between mb-3">
+                        <h4 class="font-bold text-xl text-gray-900">${asset.name}</h4>
+                        <span class="text-xs font-semibold px-2.5 py-1 rounded-full ${style.bg} ${style.text}">${asset.classification}</span>
+                    </div>
                     <div class="bg-blue-50 rounded-lg p-4 mb-4 grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
                         <div><p class="text-xs font-semibold text-gray-500 uppercase tracking-wider">Fundo</p><p class="font-bold text-base text-[#03045E]">${asset.structure}</p></div>
                         <div><p class="text-xs font-semibold text-gray-500 uppercase tracking-wider">V. Face (R$ mi)</p><p class="font-bold text-base text-[#03045E]">${asset.faceValue}</p></div>
